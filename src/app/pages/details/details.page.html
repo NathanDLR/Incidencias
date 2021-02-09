@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles de la Incidencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Incidencia {{id}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-header>
+      <ion-card-title>Nombre de Incidencia</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{selectedIncidencia.name}}
+    </ion-card-content>
+    
+    <ion-card-header>
+      <ion-card-title>Descripción completa de la Incidencia</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{selectedIncidencia.description}}
+    </ion-card-content>
+
+    <ion-card-header>
+      <ion-card-title>Fecha de la Incidencia</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{selectedIncidencia.date | date: 'shortDate'}}
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

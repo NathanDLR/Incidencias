@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Incidencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="incidencias.length > 0">
+      <ion-title>Lista de Incidencias</ion-title>
+      <ion-list>
+      <ion-item *ngFor="let i of incidencias" [ion-item] = "i">
+        <ion-label><strong>Nombre:</strong> {{i.name}}</ion-label>
+        <ion-label><strong>Descripción:</strong> {{i.description}}</ion-label><br />
+        <ion-button (click)="showDetails(i.id)">Información</ion-button>
+        <ion-button (click)="checkAsResolved(i.id)">Resuelta</ion-button>
+      </ion-item>
+      </ion-list>
+    </ion-card>
+  
+    <ion-button (click)="presentModal()">Nueva Incidencia</ion-button>
+
+  <ion-card  *ngIf="resolvedIncidencias.length > 0">
+    <ion-title>Últimas incidencias resueltas</ion-title>
+    <ion-list>
+      <ion-item *ngFor="let i of resolvedIncidencias" [ion-item] = "i">
+        <ion-label><strong>Nombre:</strong> {{i.name}}</ion-label>
+        <ion-label><strong>Descripción:</strong> {{i.description}}</ion-label><br />
+        <ion-label><strong>Fecha:</strong> {{i.date | date:'shortDate'}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+</ion-content>

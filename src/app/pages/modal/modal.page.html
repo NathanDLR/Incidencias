@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro de una Nueva Incidencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div>
+    <form [formGroup] = "nuevaIncidenciaForm">
+      
+      <ion-item>
+        <ion-label>Nombre de la Incidencia</ion-label>
+        <ion-input #name placeholder="Nombre" formControlName="name" [ngClass]="{
+          'invalidInput': nuevaIncidenciaForm.controls.name.invalid && nuevaIncidenciaForm.controls.name.touched,
+          'validInput': nuevaIncidenciaForm.controls.name.valid && nuevaIncidenciaForm.controls.name.touched
+        }"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Describe la Incidencia</ion-label>
+        <ion-input #desc placeholder="Descripción" formControlName="description" [ngClass]="{
+          'invalidInput': nuevaIncidenciaForm.controls.description.invalid && nuevaIncidenciaForm.controls.description.touched,
+          'validInput': nuevaIncidenciaForm.controls.description.valid && nuevaIncidenciaForm.controls.description.touched
+        }"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>¿Cúando ocurrió?</ion-label>
+        <ion-datetime #date displayFormat="MM DD YY" placeholder="Selecciona una fecha"></ion-datetime>
+      </ion-item>
+        
+      <ion-buttons>
+        <ion-button color="danger" (click)="validate(name, desc, date)">Añadir Incidencia</ion-button>
+        <ion-button (click)="dismissModal()">Cancelar</ion-button>
+      </ion-buttons>
+    </form>
+  </div>
+  
+  
+
+</ion-content>
